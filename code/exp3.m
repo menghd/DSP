@@ -5,10 +5,10 @@ N = length(x);
 if N == 1
   X = x;
 else
-  X1 = myFFT(x(1:2:N/2));
-  X2 = myFFT(x(0:2:N/2 - 1));
+  X1 = myFFT(x(1:2:N));
+  X2 = myFFT(x(2:2:N));
   X2 = X2.*exp(-1j*2*pi*(0:N/2 - 1)'/N);
-  X=[X1 + X2;X1 -X2];
+  X = [X1 + X2; X1 - X2];
 end
 
 function X = myDFT(x)
