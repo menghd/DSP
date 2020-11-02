@@ -1,4 +1,29 @@
 %1
+functionX = myFFT(x)
+x = x(:);
+N = length(x);
+if N == 1
+  X = x;
+else
+  X1 = myFFT();
+  X2 = myFFT();
+  X2 = X2.*exp(-1j*2*pi*(0:N/2-1)'/N);
+  X=[;];
+end
+
+functionX = myDFT(x)
+x = x(:);
+N = length(x);
+X = zeros(N,1);
+W = exp(-1j*2*pi/N);
+for k = 1:N
+  for n = 1:N
+    X(k) = X(k) + x(n)*W^((k-1)*(n-1));
+  end
+end
+
+
+%2
 fs = 100; % 大于最大两倍即30Hz即可
 N = 1024; % 取2的次幂便于FFT
 f1 = 15; f2 = 2;
@@ -18,7 +43,7 @@ plot(t, x2)
 subplot(224)
 stem(fa, F2)
 
-%2
+%3
 T = .01;
 N1 = 100; N2 = 50;
 t1 = (1:N1)*T;
@@ -28,8 +53,8 @@ x1 = sin(2*pi*f1*t1) + sin(2*pi*f2*t1);
 x2 = sin(2*pi*f1*t2) + sin(2*pi*f2*t2);
 F1 = abs(fft(x1)); F1 = F1(1:N1);
 F2 = abs(fft(x2)); F2 = F2(1:N2);
-fa1 = (1:N)/(N1*T);
-fa2 = (1:N)/(N2*T);
+fa1 = (1:N1)/(N1*T);
+fa2 = (1:N2)/(N2*T);
 
 subplot(211)
 stem(fa1, F1)
