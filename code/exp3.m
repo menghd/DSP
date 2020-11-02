@@ -5,8 +5,8 @@ f1 = 15; f2 = 2;
 t = (1:N)/fs; 
 x1 = sin(2*pi*f1*t);
 x2 = sin(2*pi*f2*t);
-F1 = abs(fft(x1))*(1:N); % X按习惯表示x对应生成的循环矩阵
-F2 = abs(fft(x2))*(1:N);
+F1 = abs(fft(x1)); F1 = F1(1:N); % X按习惯表示x对应生成的循环矩阵
+F2 = abs(fft(x2)); F2 = F2(1:N);
 fa = (1:N)*fs/N % 模拟频率
 % 可以考虑fft加上shift使得图像符合平时习惯
 subplot(221)
@@ -26,8 +26,8 @@ t2 = (1:N2)*T;
 f1 = 15; f2 = 2;
 x1 = sin(2*pi*f1*t1) + sin(2*pi*f2*t1);
 x2 = sin(2*pi*f1*t2) + sin(2*pi*f2*t2);
-F1 = abs(fft(x1))*(1:N1);
-F2 = abs(fft(x2))*(1:N2);
+F1 = abs(fft(x1)); F1 = F1(1:N1);
+F2 = abs(fft(x2)); F2 = F2(1:N2);
 fa1 = (1:N)/(N1*T);
 fa2 = (1:N)/(N2*T);
 
