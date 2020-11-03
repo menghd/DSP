@@ -23,21 +23,25 @@ for k = 1:N
 end
 
 N = zeros(12, 1);
-T1 = N; T2 = N;
+T1 = N; T2 = N; T3 = N;
 for n = 1:length(N)
   x = 1-2*rand(power(2, n), 1);
   tic
-  myFFT(x);
+  fft(x);
   toc
   T1(n) = toc;
   tic
-  myDFT(x);
+  myFFT(x);
   toc
   T2(n) = toc;
+  tic
+  myDFT(x);
+  toc
+  T3(n) = toc;
 end
 
 N = 1:length(N);
-loglog(N, T1, N, T2)
+loglog(N, T1, N, T2, N, T3)
 xlabel('N')
 ylabel('t')
 
