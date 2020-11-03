@@ -27,15 +27,15 @@ for N = 1:12
   n = power(2, N);
   x = 1-2*rand(n, 1);
   tic
-  myDFT(x);
+  myFFT(x);
   toc
   T1(N) = toc;
   tic
-  myFFT(x);
+  myDFT(x);
   toc
   T2(N) = toc;
 end
-N = 1:12
+N = 1:12;
 loglog(N, T1, N, T2)
 
 %2
