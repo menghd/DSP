@@ -22,20 +22,24 @@ for k = 1:N
   end
 end
 
-T1 = T2 = zeros(12, 1);
-for N = 1:12
-  x = 1-2*rand(power(2, N), 1);
+N = zeros(12, 1);
+T1 = T2 = N;
+for n = 1:length(N)
+  x = 1-2*rand(power(2, n), 1);
   tic
   myFFT(x);
   toc
-  T1(N) = toc;
+  T1(n) = toc;
   tic
   myDFT(x);
-  toc1
-  T2(N) = toc;
+  toc
+  T2(n) = toc;
 end
-N = 1:12;
+
+N = 1:length(N);
 loglog(N, T1, N, T2)
+xlabel('N')
+ylabel('t')
 
 %2
 fs = 100; % 大于最大两倍即30Hz即可
