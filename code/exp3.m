@@ -38,7 +38,7 @@ for n = 1:length(N)
 end
 
 N = 1:length(N);
-loglog(N, T1, N, T2, N, T3)
+loglog(N, T1, 'r', N, T2, 'g', N, T3, 'b')
 xlabel('N')
 ylabel('t')
 
