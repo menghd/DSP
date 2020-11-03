@@ -36,7 +36,7 @@ for N = 1:12
   toc
   T2(N) = toc;
 end
-N = 1:12;
+N = 1:12
 loglog(N, T1, N, T2)
 
 %2
