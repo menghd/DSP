@@ -15,10 +15,10 @@ for i = 1:n;
     end      
     if ele(j, k) == abs(d); break, end  
   end    
-  t = 0:2020;  
+  t = 0:300;  
   y = sin(2*pi*t*fL(j)/fs) + sin(2*pi*t*fH(k)/fs);   
   sound(y, fs);   
-  pause(.3) % 输出间隔时间
+  pause(1) % 输出间隔时间
 end  
   
 %2
