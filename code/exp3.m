@@ -28,15 +28,12 @@ for n = 1:length(N)
   x = 1-2*rand(power(2, n), 1);
   tic
   fft(x);
-  toc
   T1(n) = toc;
   tic
   myFFT(x);
-  toc
   T2(n) = toc;
   tic
   myDFT(x);
-  toc
   T3(n) = toc;
 end
 
