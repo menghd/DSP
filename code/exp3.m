@@ -23,7 +23,7 @@ for k = 1:N
 end
 
 N = zeros(12, 1);
-T1 = T2 = N;
+T1 = N; T2 = N;
 for n = 1:length(N)
   x = 1-2*rand(power(2, n), 1);
   tic
