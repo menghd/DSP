@@ -24,15 +24,14 @@ end
 
 T1 = T2 = zeros(12, 1);
 for N = 1:12
-  n = power(2, N);
-  x = 1-2*rand(n, 1);
+  x = 1-2*rand(power(2, N), 1);
   tic
   myFFT(x);
   toc
   T1(N) = toc;
   tic
   myDFT(x);
-  toc
+  toc1
   T2(N) = toc;
 end
 N = 1:12;
