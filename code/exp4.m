@@ -27,7 +27,7 @@ As = 40; % 查表选用Hanning窗
 deltaw = 2*pi*(fst - fp)/fs;
 n = ceil(6.2*pi/deltaw);
 h = hanning(n);
-f = 2*fst/fs;
+f = (fst + fp)/(2*fs);
 b = fir1(n - 1, f, h)
 figure
 stem(b)
