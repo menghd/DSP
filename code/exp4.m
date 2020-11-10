@@ -5,7 +5,7 @@ fs = 20000;
 [n, other] = buttord(2*pi*fp, 2*pi*fst, Rp, As, 's'); % 超出归一化1需要添加's'
 [z, p, k] = buttap(n);
 [b, a] = zp2tf(z, p, k);
-[bt, at] = lp2lp(b, a); % 连续滤波器
+[bt, at] = lp2lp(b, a, 2*pi*fp); % 连续滤波器
 [bz, az] = impinvar(bt, at, fs) % 数字滤波器
 freqz(bz, az) % 频率响应
 
