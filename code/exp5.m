@@ -37,7 +37,8 @@
  f = scal2frq(scals,wavename,1/Fs); % 将尺度转换为频率  
  wvp = cwt(y,scals,wavename); % 连续小波系数
  t = 0:1/Fs:length(y)/Fs;
- figureimagesc(t, f, abs(wvp));
+ figure
+ imagesc(t, f, abs(wvp));
  ylim([600 1500]);
  set(gca,'YDir','normal')
  xlabel('时间 (s)');
